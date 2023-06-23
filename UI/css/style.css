@@ -1,0 +1,129 @@
+* {
+    font-family: 'Mulish', "Poppins",  sans-serif;
+}
+
+
+
+.font-size-sm {
+    font-size: 11.4px;
+}
+
+.font-size-md {
+    font-size: 14px;
+}
+
+.font-size-xmd {
+    font-size: 18px;
+}
+
+.font-size-lg {
+    font-size: 21.4px;
+}
+
+.font-size-xlg {
+    font-size: 23px;
+}
+
+.font-size-xxlg {
+    font-size: 30px;
+}
+
+/* ############################################## */
+
+.font-weight-sm {
+    font-weight: 400;
+}
+
+.font-weight-md {
+    font-weight: 500;
+}
+
+
+.font-weight-xmd {
+    font-weight: 600;
+}
+
+.font-weight-lg {
+    font-weight: 700;
+}
+
+.font-weight-xlg {
+    font-weight: 800;
+}
+
+.font-weight-xxlg {
+    font-weight: 900;
+}
+
+.line-height-sm{
+    line-height: 16px;
+}
+
+.line-height-md {
+    line-height: 20px;
+}
+
+.line-height-lg {
+    line-height: 24px;
+}
+
+
+.lbr-50{
+    margin-left: 50px;
+}
+
+.lbr-75{
+    margin-left: 50px;
+}
+
+.lbr-100{
+    margin-left: 50px;
+}
+
+
+.go-down-md{
+    margin-top: 21px;
+}
+
+.go-down-lg{
+
+    margin-top: 50px;
+
+}
+
+.round-lg{
+    border-radius: 90px;
+
+}
+
+
+.choose-img{
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border: 1.7px solid #e0e0e0;
+}
+
+.choose-img-button{
+	background-color: #40196d;
+	color: white;
+	border: none;
+	padding: 10px 55px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 15px;
+    letter-spacing: 1px;
+}
+
+
+.turn-in-btn{
+    text-decoration: none;
+    border: 1.9px solid #e0e0e0;
+	padding: 8px 55px;
+    border-radius: 8px;
+    background-color: #40196d;
+	color: #fff;
+
+}
