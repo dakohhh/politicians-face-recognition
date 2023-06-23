@@ -9,8 +9,12 @@ __model = None
 
 def get_cv2_image_from_bs4_string(bs4_string:str):
 
+    if "data" in bs4_string:
 
-    encoded_data = bs4_string.split(",")[1]
+        encoded_data = bs4_string.split(",")[1]
+
+    else:
+        encoded_data = bs4_string
 
     nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
 
@@ -32,8 +36,10 @@ def get_cropped_image_if_2_eyes(image_path:str, image_base64_data):
         img = get_cv2_image_from_bs4_string(image_base64_data)
     
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    
+
+   
     faces = face_cascade.detectMultiScale(gray)
+    
 
     cropped_faces = []
     
@@ -71,8 +77,23 @@ def classify_image(image_bs4_data, file_path=None):
 
         final = combined_img.reshape(1, lenght_of_img_array).astype(float)
 
-        result.append(__model.predict(final)[0])
+        probabilities = np.round( __model.predict_proba(final)*100, 2).tolist()[0]
 
+
+        class_dictionary = {}
+
+        for name , _class in __class_name_to_number.items():
+
+            class_dictionary[name] = probabilities[_class]
+
+        result.append({
+
+            "class": class_number_to_name(__model.predict(final)[0]),
+
+            "class_dictionary": class_dictionary
+
+        })
+            
     return result
 
 
@@ -112,8 +133,16 @@ def get_bs4_test_image():
 
 
 
+def class_number_to_name(class_name):
+    return __class_number_to_name[class_name]
+
+
+
+
+
 if __name__  == "__main__":
 
     load_saved_artifacts()
 
-    print(classify_image(get_bs4_test_image(), None))
+    # print(classify_image(get_bs4_test_image(), None))
+    print(classify_image(None, "./test_images/Buhari-4-1.png"))
