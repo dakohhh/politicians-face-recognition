@@ -13,6 +13,12 @@ app = Flask(__name__)
 CORS(app)
 
 
+app.debug = True
+
+
+load_saved_artifacts()
+
+
 
 @app.route("/", methods=["GET"])
 def home():
@@ -25,7 +31,7 @@ def classify_image_route():
 
     if request.method == "POST":
 
-        image_data = request.files["image_data"]
+        image_data = request.files.get("img")
 
         encoded_image = base64.b64encode(image_data.read()).decode('utf-8')
 
@@ -44,5 +50,4 @@ def classify_image_route():
 
 
 
-load_saved_artifacts()
 
