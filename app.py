@@ -44,6 +44,5 @@ def classify_image_route():
 
 
 
-if __name__  == "__main__":
-    load_saved_artifacts()
-    app.run(port=8000, debug=True)
+load_saved_artifacts()
+
