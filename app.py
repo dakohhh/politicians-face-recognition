@@ -1,5 +1,6 @@
 import base64
 from flask import Flask, request, Response, jsonify
+from flask_cors import CORS
 
 from util import classify_image, load_saved_artifacts
 
@@ -9,9 +10,18 @@ from response import CustomResponse
 
 app = Flask(__name__)
 
+CORS(app)
+
+
+
+@app.route("/", methods=["GET"])
+def home():
+    return {"message": "Welcome to the classifier"}
+
+
 
 @app.route("/classify_image", methods=["GET", "POST"])
-def home():
+def classify_image_route():
 
     if request.method == "POST":
 
